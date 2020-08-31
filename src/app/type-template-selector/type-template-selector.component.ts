@@ -1,30 +1,30 @@
-import { Type } from './../type';
-import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
+
+import { StatefulTemplateSelectorComponent } from '../stateful-template-selector/stateful-template-selector.component';
+
+interface R {
+  name: string;
+  type: 0 | 1;
+}
 
 @Component({
   selector: 'app-type-template-selector',
-  templateUrl: './type-template-selector.component.html',
+  templateUrl: './../stateful-template-selector/stateful-template-selector.component.html',
   styleUrls: ['./type-template-selector.component.css']
 })
-export class TemplateSelectorComponent implements OnInit {
+export class TemplateSelectorComponent extends StatefulTemplateSelectorComponent<R> {
+  
+  @Input() type0Template: TemplateRef<any>;
+  @Input() type1Template: TemplateRef<any>;
 
-  @Input() type1Template: TemplateRef<any>[];
-  @Input() type2Template: TemplateRef<any>;
-
-  @Input() type: Type;
-  @Input() data: any;
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    super();
   }
 
-  switchOnType(): TemplateRef<any> {
-    switch (this.type) {
-      case Type.Type1:
-        return this.type1Template[1];
-        case Type.Type2:
-          return this.type2Template;
+  selectTemplate(): TemplateRef<any> {
+    switch (this.state.type) {
+      case 0: return this.type0Template;
+      case 1: return this.type1Template;
     }
   }
 

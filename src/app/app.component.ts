@@ -2,8 +2,8 @@ import { Type } from './type';
 import { Component } from '@angular/core';
 
 interface Item {
-  type: Type;
-  data: string;
+  type: 0 | 1;
+  name: string;
 }
 
 @Component({
@@ -17,11 +17,11 @@ export class AppComponent {
   items: Item[] = [
     {
       type: Type.Type1,
-      data: 'Hello'
+      name: 'Hello'
     },
     {
       type: Type.Type2,
-      data: 'Hello 2'
+      name: 'Hello 2'
     }
   ];
 

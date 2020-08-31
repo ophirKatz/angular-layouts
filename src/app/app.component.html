@@ -1,21 +1,22 @@
 <!-- <app-groups></app-groups> -->
 
-<ng-template #type1 let-data="data">
-	<p>This is the first type of template with data: {{data}}</p>
+<p>A data template example:</p>
+
+<ng-template #type1 let-data="state">
+	<p>This is the first type of template with data: {{data.name}}</p>
 </ng-template>
 
-<ng-template #type2 let-data="data">
-	<p>This is the second type of template with data: {{data}}</p>
+<ng-template #type2 let-data="state">
+	<p>This is the second type of template with data: {{data.name}}</p>
 </ng-template>
 
 <mat-selection-list #shoes [multiple]="false" (selectionChange)="onSelectionChanged(shoes.selectedOptions.selected[0])">
 	<mat-list-option *ngFor="let item of items"
 		[value]="item.type">
 		<app-type-template-selector
-			[type1Template]="[type1, type2]"
-			[type2Template]="type2"
-			[type]="item.type"
-			[data]="item.data"
+			[type0Template]="type1"
+			[type1Template]="type2"
+			[state]="item"
 			>
 
 		</app-type-template-selector>
