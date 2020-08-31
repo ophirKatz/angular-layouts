@@ -25,3 +25,10 @@
 <p>
   Option selected: {{shoes.selectedOptions.selected[0]?.value}}
 </p>
+
+<p>String format example:</p>
+{{
+	'string with parameters: {0}, {1}' | stringFormat
+		: 'param1'
+		: 'param2'
+}}

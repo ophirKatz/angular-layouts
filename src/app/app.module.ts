@@ -9,6 +9,7 @@ import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GroupsComponent } from './groups/groups.component';
 import { TemplateSelectorComponent } from './type-template-selector/type-template-selector.component';
+import { GenericStringFormatPipe } from './generic-string-format.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TemplateSelectorComponent } from './type-template-selector/type-templat
     TreeLayoutComponentBase,
     GroupsComponent,
     TemplateSelectorComponent,
+    GenericStringFormatPipe,
   ],
   imports: [
     BrowserModule,
