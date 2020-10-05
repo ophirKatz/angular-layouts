@@ -1,3 +1,4 @@
+import { ConfigService } from './config.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GroupsComponent } from './groups/groups.component';
 import { TemplateSelectorComponent } from './type-template-selector/type-template-selector.component';
 import { GenericStringFormatPipe } from './generic-string-format.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { ItemComponent } from './item/item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +22,18 @@ import { GenericStringFormatPipe } from './generic-string-format.pipe';
     GroupsComponent,
     TemplateSelectorComponent,
     GenericStringFormatPipe,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,
     MaterialModule,
+    FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    ConfigService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

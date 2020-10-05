@@ -1,5 +1,9 @@
 <!-- <app-groups></app-groups> -->
 
+<app-item></app-item>
+
+<p>The title is: {{ title }}</p>
+
 <p>A data template example:</p>
 
 <ng-template #type1 let-data="state">
@@ -11,20 +15,15 @@
 </ng-template>
 
 <mat-selection-list #shoes [multiple]="false" (selectionChange)="onSelectionChanged(shoes.selectedOptions.selected[0])">
-	<mat-list-option *ngFor="let item of items"
-		[value]="item.type">
-		<app-type-template-selector
-			[type0Template]="type1"
-			[type1Template]="type2"
-			[state]="item"
-			>
+	<mat-list-option *ngFor="let item of items" [value]="item.type">
+		<app-type-template-selector [type0Template]="type1" [type1Template]="type2" [state]="item">
 
 		</app-type-template-selector>
 	</mat-list-option>
 </mat-selection-list>
 
 <p>
-  Option selected: {{shoes.selectedOptions.selected[0]?.value}}
+	Option selected: {{shoes.selectedOptions.selected[0]?.value}}
 </p>
 
 <p>String format example:</p>

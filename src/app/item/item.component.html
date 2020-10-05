@@ -1,0 +1,14 @@
+<label>Input id</label>
+<input type="text" [(ngModel)]="input">
+<button (click)="getItem()">Get item</button>
+
+<br />
+
+<div>
+	<h3>Item:</h3>
+	<span *ngIf="item$ | async as item; else loading">{{ item }}</span>
+
+	<ng-template #loading>
+		<h3>Getting item {{ input }} from service...</h3>
+	</ng-template>
+</div>

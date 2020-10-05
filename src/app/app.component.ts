@@ -1,5 +1,7 @@
+import { GetService } from './get.service';
 import { Type } from './type';
 import { Component } from '@angular/core';
+import { ConfigService } from './config.service';
 
 interface Item {
   type: 0 | 1;
@@ -12,7 +14,14 @@ interface Item {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-layouts';
+
+  constructor(
+    private configService: ConfigService,
+    private getService: GetService) {
+    this.title = this.configService.someProp;
+  }
+
+  title: string;
 
   items: Item[] = [
     {
