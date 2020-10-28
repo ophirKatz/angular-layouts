@@ -1,3 +1,4 @@
+import { AService } from './a.service';
 import { ConfigService } from './config.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,8 @@ import { GenericStringFormatPipe } from './generic-string-format.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemComponent } from './item/item.component';
 import { FormsModule } from '@angular/forms';
+import { IaInjectionToken } from './ia';
+import { IbInjectionToken } from './ib';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,14 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     ConfigService,
+    {
+      provide: IaInjectionToken,
+      useClass: AService
+    },
+    {
+      provide: IbInjectionToken,
+      useClass: AService
+    },
   ],
   bootstrap: [AppComponent]
 })

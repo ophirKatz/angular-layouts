@@ -1,6 +1,7 @@
+import { Ia, IaInjectionToken } from './ia';
 import { GetService } from './get.service';
 import { Type } from './type';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ConfigService } from './config.service';
 
 interface Item {
@@ -17,8 +18,11 @@ export class AppComponent {
 
   constructor(
     private configService: ConfigService,
-    private getService: GetService) {
+    private getService: GetService,
+    @Inject(IaInjectionToken) private ia: Ia
+  ) {
     this.title = this.configService.someProp;
+    console.log(ia.getHello());
   }
 
   title: string;
